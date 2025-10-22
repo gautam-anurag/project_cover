@@ -3,24 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- SEO: Updated Title -->
-    <title>Project_Cover</title>
-
-    <!-- SEO: Updated Meta Description -->
-    <meta name="description" content="A professional photography portfolio of premium phone cases for the Samsung Galaxy S23 Ultra, featuring brands like Spigen, Caseology, and 11zeros.">
+    <meta name="description" content="A professional photography portfolio showcasing product design, starting with a collection of premium phone cases for the Samsung Galaxy S23 Ultra.">
     
-    <!-- 
-      SEO & Social Share Tags 
-      !! REPLACE 'https://your-website-url.com' WITH ACTUAL URL !! 
-    -->
-    <link rel="canonical" href="https://gautam-anurag.github.io/project_cover/" /> 
-    <meta property="og:title" content="Samsung Galaxy S23 Ultra Case Photography | Project_Cover" />
-    <meta property="og:description" content="A professional photography portfolio of premium phone cases for the Samsung Galaxy S23 Ultra." />
-    <meta property="og:image" content="https://gautam-anurag.github.io/project_cover/images/11zeros-Corrugated_2.jpg" /> 
-    <meta property="og:url" content="https://gautam-anurag.github.io/project_cover/" /> 
-    <meta property="og:type" content="website" />
-    <!-- End SEO Tags -->
+    <title>Project_Cover</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -183,18 +168,18 @@
             max-width: 800px;
             padding: 0 1rem;
         }
-        /* SEO: Use h1 for the main heading */
-        .hero-content h1 {
+        .hero-content h2 {
             font-size: 3.5rem;
             margin-bottom: 1rem;
             font-weight: 700;
             display: inline-block;
         }
-        /* SEO: Removed opacity: 0 from p tag */
         .hero-content p {
             font-size: 1.25rem;
             font-weight: 300;
             color: var(--text-secondary);
+            opacity: 0;
+            transition: opacity 1.5s ease;
         }
 
         /* About Section */
@@ -306,9 +291,14 @@
             animation: pulse 2s infinite ease-in-out;
             z-index: 10;
         }
-        
-        /* Removed blink-caret animation as typing effect is removed */
-
+        @keyframes blink-caret {
+            from, to {
+                border-color: transparent
+            }
+            50% {
+                border-color: var(--accent-color);
+            }
+        }
         .item-info {
             padding: 1.5rem;
             display: flex;
@@ -606,8 +596,7 @@
 
         /* Responsive Design */
         @media (min-width: 768px) {
-            /* SEO: Use h1 for the main heading */
-            .hero-content h1 {
+            .hero-content h2 {
                 font-size: 4.5rem;
             }
             .modal-content {
@@ -622,8 +611,7 @@
             .hero {
                 background-attachment: scroll;
             }
-            /* SEO: Use h1 for the main heading */
-            .hero-content h1 {
+            .hero-content h2 {
                 font-size: 3rem;
             }
             .close-btn {
@@ -633,59 +621,6 @@
             }
         }
     </style>
-
-    <!-- 
-      Schema.org Structured Data 
-      !! REPLACE 'https://your-website-url.com' WITH YOUR ACTUAL URL !! 
-    -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "CollectionPage",
-      "name": "Samsung Galaxy S23 Ultra Case Photography | Project_Cover",
-      "description": "A professional photography portfolio of premium phone cases for the Samsung Galaxy S23 Ultra, featuring brands like Spigen, Caseology, and 11zeros.",
-      "url": "https://gautam-anurag.github.io/project_cover/",
-      "author": {
-        "@type": "Person",
-        "name": "Anurag Gautam"
-      },
-      "mainEntity": {
-        "@type": "ItemList",
-        "itemListElement": [
-          {
-            "@type": "ImageObject",
-            "position": 1,
-            "name": "11zeros Corrugated Case for S23 Ultra",
-            "description": "Photo of the 11zeros Corrugated case for Samsung S23 Ultra showing its textured black back and orange camera ring.",
-            "contentUrl": "https://gautam-anurag.github.io/project_cover/images/11zeros-Corrugated_1.jpg"
-          },
-          {
-            "@type": "ImageObject",
-            "position": 2,
-            "name": "Caseology Nano Pop Case for S23 Ultra",
-            "description": "Photo of the Caseology Nano Pop case for Samsung S23 Ultra in black with a yellow camera ring.",
-            "contentUrl": "https://gautam-anurag.github.io/project_cover/images/CASEOLOGY-Nano-Pop_1.jpg"
-          },
-          {
-            "@type": "ImageObject",
-            "position": 3,
-            "name": "Spigen Liquid Air Case for S23 Ultra",
-            "description": "Photo of the Spigen Liquid Air case for Samsung S23 Ultra with its geometric grip pattern.",
-            "contentUrl": "https://gautam-anurag.github.io/project_cover/images/Spigen-Liquid-Air_1.jpg"
-          },
-          {
-            "@type": "ImageObject",
-            "position": 4,
-            "name": "Casesily Carbon Fiber Case for S23 Ultra",
-            "description": "Photo of the Casesily Carbon Fiber case for Samsung S23 Ultra with a central racing stripe.",
-            "contentUrl": "https://gautam-anurag.github.io/project_cover/images/Casesily-Carbon-Fiber_3.jpg"
-          }
-        ]
-      }
-    }
-    </script>
-    <!-- End Schema.org -->
-
 </head>
 <body class="loading">
 
@@ -703,10 +638,9 @@
     <main>
         <!-- Hero Section -->
         <section class="hero">
-            <!-- SEO: Replaced JS-driven h2 with static h1 and p -->
             <div class="hero-content">
-                <h1>Project_Cover</h1>
-                <p>Capturing the Details</p>
+                <h2 id="hero-title"></h2>
+                <p id="hero-subtitle"></p>
             </div>
         </section>
 
@@ -723,17 +657,14 @@
 
         <!-- Portfolio Gallery -->
         <section class="portfolio">
-            <!-- SEO: More specific heading -->
-            <h2 class="portfolio-title">S23 Ultra Case Collection</h2>
+            <h2 class="portfolio-title">The Collection</h2>
             <div class="portfolio-grid">
                 <!-- Item 1: 11zeros Corrugated -->
                 <div class="portfolio-item" data-title="11zeros - Corrugated" data-images="images/11zeros-Corrugated_1.jpg,images/11zeros-Corrugated_2.jpg">
                     <div class="image-container">
                         <img src="resources/project_cover-icon-white.png" alt="Loading..." class="image-loader-logo" width="48" height="48">
-                        <!-- SEO: Updated Alt Text -->
-                        <img src="images/11zeros-Corrugated_1.jpg" alt="Photo of the 11zeros Corrugated case for Samsung S23 Ultra showing its textured black back and orange camera ring." loading="lazy" width="600" height="800">
-                        <!-- SEO: Updated Alt Text -->
-                        <img src="images/11zeros-Corrugated_2.jpg" alt="Angled photo of the 11zeros Corrugated S23 Ultra case." loading="lazy" width="600" height="800">
+                        <img src="images/11zeros-Corrugated_1.jpg" alt="11zeros Corrugated Case - View 1" loading="lazy" width="600" height="800">
+                        <img src="images/11zeros-Corrugated_2.jpg" alt="11zeros Corrugated Case - View 2" loading="lazy" width="600" height="800">
                         <img src="resources/project_cover-icon-white.png" alt="Watermark" class="watermark" width="60" height="20">
                     </div>
                     <div class="item-info">
@@ -750,10 +681,8 @@
                 <div class="portfolio-item" data-title="Caseology - Nano Pop" data-images="images/CASEOLOGY-Nano-Pop_1.jpg,images/CASEOLOGY-Nano-Pop_2.jpg">
                     <div class="image-container">
                         <img src="resources/project_cover-icon-white.png" alt="Loading..." class="image-loader-logo" width="48" height="48">
-                        <!-- SEO: Updated Alt Text -->
-                        <img src="images/CASEOLOGY-Nano-Pop_1.jpg" alt="Photo of the Caseology Nano Pop case for Samsung S23 Ultra in black with a yellow camera ring." loading="lazy" width="600" height="800">
-                        <!-- SEO: Updated Alt Text -->
-                        <img src="images/CASEOLOGY-Nano-Pop_2.jpg" alt="Side view of the Caseology Nano Pop S23 Ultra case." loading="lazy" width="600" height="800">
+                        <img src="images/CASEOLOGY-Nano-Pop_1.jpg" alt="Caseology Nano Pop - View 1" loading="lazy" width="600" height="800">
+                        <img src="images/CASEOLOGY-Nano-Pop_2.jpg" alt="Caseology Nano Pop - View 2" loading="lazy" width="600" height="800">
                         <img src="resources/project_cover-icon-white.png" alt="Watermark" class="watermark" width="60" height="20">
                     </div>
                     <div class="item-info">
@@ -770,10 +699,8 @@
                 <div class="portfolio-item" data-title="Spigen - Liquid Air" data-images="images/Spigen-Liquid-Air_1.jpg,images/Spigen-LiquidAir_2.jpg">
                     <div class="image-container">
                         <img src="resources/project_cover-icon-white.png" alt="Loading..." class="image-loader-logo" width="48" height="48">
-                        <!-- SEO: Updated Alt Text -->
-                        <img src="images/Spigen-Liquid-Air_1.jpg" alt="Photo of the Spigen Liquid Air case for Samsung S23 Ultra with its geometric grip pattern." loading="lazy" width="600" height="800">
-                        <!-- SEO: Updated Alt Text -->
-                        <img src="images/Spigen-LiquidAir_2.jpg" alt="Angled photo of the Spigen Liquid Air S23 Ultra case." loading="lazy" width="600" height="800">
+                        <img src="images/Spigen-Liquid-Air_1.jpg" alt="Spigen Liquid Air - View 1" loading="lazy" width="600" height="800">
+                        <img src="images/Spigen-LiquidAir_2.jpg" alt="Spigen Liquid Air - View 2" loading="lazy" width="600" height="800">
                         <img src="resources/project_cover-icon-white.png" alt="Watermark" class="watermark" width="60" height="20">
                     </div>
                     <div class="item-info">
@@ -790,10 +717,8 @@
                 <div class="portfolio-item" data-title="Casesily - Carbon Fiber" data-images="images/Casesily-Carbon-Fiber_3.jpg,images/Casesily-Carbon-Fiber_1.jpg,images/Casesily-Carbon-Fiber_2.jpg">
                     <div class="image-container">
                         <img src="resources/project_cover-icon-white.png" alt="Loading..." class="image-loader-logo" width="48" height="48">
-                        <!-- SEO: Updated Alt Text -->
-                        <img src="images/Casesily-Carbon-Fiber_3.jpg" alt="Photo of the Casesily Carbon Fiber case for Samsung S23 Ultra with a central racing stripe." loading="lazy" width="600" height="800">
-                        <!-- SEO: Updated Alt Text -->
-                        <img src="images/Casesily-Carbon-Fiber_1.jpg" alt="Top-down view of the Casesily Carbon Fiber S23 Ultra case." loading="lazy" width="600" height="800">
+                        <img src="images/Casesily-Carbon-Fiber_3.jpg" alt="Casesily Carbon Fiber - View 1" loading="lazy" width="600" height="800">
+                        <img src="images/Casesily-Carbon-Fiber_1.jpg" alt="Casesily Carbon Fiber - View 1" loading="lazy" width="600" height="800">
                         <!-- <img src="images/Casesily-Carbon-Fiber_2.jpg" alt="Casesily Carbon Fiber - View 2" loading="lazy" width="600" height="800"> -->
                         <img src="resources/project_cover-icon-white.png" alt="Watermark" class="watermark" width="60" height="20">
                     </div>
@@ -893,8 +818,46 @@
                 img.addEventListener('contextmenu', e => e.preventDefault());
             });
 
-            // SEO: Removed the JavaScript typing effect for the hero title.
-            // The h1 and p tags are now static in the HTML.
+            // Hero Text Typing Effect
+            const heroTitleEl = document.getElementById('hero-title');
+            const heroSubtitleEl = document.getElementById('hero-subtitle');
+            const titleText = "Project_Cover";
+            const subtitleText = "Capturing the Details";
+
+            function typeEffect(element, text, callback) {
+                let i = 0;
+                element.innerHTML = ""; 
+                element.style.borderRight = '3px solid var(--accent-color)';
+                element.style.paddingRight = '5px';
+                element.style.animation = 'blink-caret .75s step-end infinite';
+                element.style.whiteSpace = 'nowrap';
+                element.style.overflow = 'hidden';
+
+                function type() {
+                    if (i < text.length) {
+                        element.innerHTML += text.charAt(i);
+                        i++;
+                        setTimeout(type, 120);
+                    } else if (callback) {
+                        setTimeout(() => {
+                            element.style.animation = 'none';
+                            element.style.borderRight = 'transparent';
+                            callback();
+                        }, 1000); 
+                    }
+                }
+                type();
+            }
+            
+            setTimeout(() => {
+                if(heroTitleEl && heroSubtitleEl) {
+                    heroSubtitleEl.textContent = subtitleText;
+                    typeEffect(heroTitleEl, titleText, () => {
+                        heroTitleEl.style.marginBottom = "1rem";
+                        heroSubtitleEl.style.opacity = '1';
+                    });
+                }
+            }, 500);
 
             // Intersection Observer for fade-in portfolio items
             const portfolioItems = document.querySelectorAll('.portfolio-item');
